@@ -1,0 +1,39 @@
+version: "3.8"
+
+services:
+  app:
+    build: .
+    container_name: challenge_app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mysql
+      - redis
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+
+  mysql:
+    image: mysql:8
+    container_name: challenge_mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: inventory_challenge
+      MYSQL_USER: challenge_user
+      MYSQL_PASSWORD: challenge_pass
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./src/database/init:/docker-entrypoint-initdb.d
+
+  redis:
+    image: redis:7
+    container_name: challenge_redis
+    ports:
+      - "6379:6379"
+
+volumes:
+  mysql_data:
