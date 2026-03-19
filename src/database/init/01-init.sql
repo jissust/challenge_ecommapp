@@ -75,3 +75,28 @@ CREATE TABLE stocks (
   FOREIGN KEY (variant_id) REFERENCES variants(id),
   FOREIGN KEY (warehouse_id) REFERENCES warehouses(id)
 );
+
+-- =========================================
+-- TABLE: publications
+-- =========================================
+
+CREATE TABLE publications (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  external_id VARCHAR(255) NOT NULL,
+  channel VARCHAR(50) NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- =========================================
+-- TABLE: publication_variants
+-- =========================================
+
+CREATE TABLE publication_variants (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  publication_id INT NOT NULL,
+  variant_id INT NOT NULL,
+  external_variant_id VARCHAR(255) NOT NULL,
+
+  FOREIGN KEY (publication_id) REFERENCES publications(id),
+  FOREIGN KEY (variant_id) REFERENCES variants(id)
+);
