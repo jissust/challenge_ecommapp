@@ -1,5 +1,5 @@
-const express = require("express")
-const pool = require("./src/database/config/db")
+import express from "express";
+import { pool } from  "./src/database/config/db.js";
 
 const app = express();
 
