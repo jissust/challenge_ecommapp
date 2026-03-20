@@ -51,6 +51,8 @@ CREATE TABLE variants (
 
   price DECIMAL(10,2),
 
+  stock_quantity INT NOT NULL DEFAULT 0,
+
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 
   FOREIGN KEY (product_id) REFERENCES products(id)
