@@ -1,4 +1,5 @@
 import { pool } from "../../database/config/db.js";
+import { stockQueue } from "../../queues/stock.queue.js";
 
 export const updateStockVariantWarehouseService = async ({
   variant_id,
@@ -28,6 +29,22 @@ export const updateStockVariantWarehouseService = async ({
     ]);
 
     await conn.commit();
+
+    await stockQueue.add(
+      "sync-stock",
+      {
+        variant_id,
+        totalStock,
+      },
+      {
+        attempts: 5,
+        backoff: {
+          type: "exponential",
+          delay: 1000,
+        },
+      },
+    );
+
     return { ok: true, totalStock };
   } catch (error) {
     await conn.rollback();
