@@ -1,0 +1,163 @@
+[
+  {
+    "id": "PUB-001",
+    "channel": "mercadolibre",
+    "title": "Remera Básica Algodón Negro",
+    "external_id": "ML-REM-BAS-NEG",
+    "status": "active",
+    "variants": [
+      { "id": "PUB-001-V1", "sku": "SKU-001", "title": "Negro / Talle S", "stock": 20, "price": 8500, "last_synced_at": null },
+      { "id": "PUB-001-V2", "sku": "SKU-002", "title": "Negro / Talle M", "stock": 30, "price": 8500, "last_synced_at": null },
+      { "id": "PUB-001-V3", "sku": "SKU-003", "title": "Negro / Talle L", "stock": 15, "price": 8500, "last_synced_at": null }
+    ]
+  },
+  {
+    "id": "PUB-002",
+    "channel": "tiendanube",
+    "title": "Remera Básica Negro",
+    "external_id": "TN-REM-BAS-NEG",
+    "status": "active",
+    "variants": [
+      { "id": "PUB-002-V1", "sku": "SKU-001", "title": "Negro / Talle S", "stock": 20, "price": 8500, "last_synced_at": null },
+      { "id": "PUB-002-V2", "sku": "SKU-002", "title": "Negro / Talle M", "stock": 30, "price": 8500, "last_synced_at": null }
+    ]
+  },
+  {
+    "id": "PUB-003",
+    "channel": "mercadolibre",
+    "title": "Remera Oversize Gris",
+    "external_id": "ML-REM-OVR-GRIS",
+    "status": "active",
+    "variants": [
+      { "id": "PUB-003-V1", "sku": "SKU-005", "title": "Gris / Talle M", "stock": 18, "price": 11500, "last_synced_at": null },
+      { "id": "PUB-003-V2", "sku": "SKU-006", "title": "Gris / Talle L", "stock": 12, "price": 11500, "last_synced_at": null },
+      { "id": "PUB-003-V3", "sku": "SKU-007", "title": "Gris / Talle XL", "stock": 0, "price": 11500, "last_synced_at": null }
+    ]
+  },
+  {
+    "id": "PUB-004",
+    "channel": "mercadolibre",
+    "title": "Jean Slim Fit Azul",
+    "external_id": "ML-JEAN-SLIM-AZL",
+    "status": "active",
+    "variants": [
+      { "id": "PUB-004-V1", "sku": "SKU-008", "title": "Azul / Talle 28", "stock": 10, "price": 22000, "last_synced_at": null },
+      { "id": "PUB-004-V2", "sku": "SKU-009", "title": "Azul / Talle 30", "stock": 14, "price": 22000, "last_synced_at": null },
+      { "id": "PUB-004-V3", "sku": "SKU-010", "title": "Azul / Talle 32", "stock": 8, "price": 22000, "last_synced_at": null }
+    ]
+  },
+  {
+    "id": "PUB-005",
+    "channel": "tiendanube",
+    "title": "Jean Slim Azul",
+    "external_id": "TN-JEAN-SLIM-AZL",
+    "status": "active",
+    "variants": [
+      { "id": "PUB-005-V1", "sku": "SKU-009", "title": "Azul / Talle 30", "stock": 14, "price": 22000, "last_synced_at": null },
+      { "id": "PUB-005-V2", "sku": "SKU-010", "title": "Azul / Talle 32", "stock": 8, "price": 22000, "last_synced_at": null }
+    ]
+  },
+  {
+    "id": "PUB-006",
+    "channel": "empretienda",
+    "title": "Jean Slim Fit",
+    "external_id": "ET-JEAN-SLIM",
+    "status": "active",
+    "variants": [
+      { "id": "PUB-006-V1", "sku": "SKU-009", "title": "Azul / Talle 30", "stock": 14, "price": 21000, "last_synced_at": null }
+    ]
+  },
+  {
+    "id": "PUB-007",
+    "channel": "mercadolibre",
+    "title": "Zapatilla Urbana Clásica Blanca",
+    "external_id": "ML-ZAP-URB-BLC",
+    "status": "active",
+    "variants": [
+      { "id": "PUB-007-V1", "sku": "SKU-015", "title": "Blanca / Talle 40", "stock": 6, "price": 38000, "last_synced_at": null },
+      { "id": "PUB-007-V2", "sku": "SKU-016", "title": "Blanca / Talle 42", "stock": 4, "price": 38000, "last_synced_at": null }
+    ]
+  },
+  {
+    "id": "PUB-008",
+    "channel": "mercadolibre",
+    "title": "Zapatilla Urbana Clásica Negra",
+    "external_id": "ML-ZAP-URB-NEG",
+    "status": "active",
+    "variants": [
+      { "id": "PUB-008-V1", "sku": "SKU-017", "title": "Negra / Talle 40", "stock": 5, "price": 38000, "last_synced_at": null },
+      { "id": "PUB-008-V2", "sku": "SKU-018", "title": "Negra / Talle 42", "stock": 3, "price": 38000, "last_synced_at": null }
+    ]
+  },
+  {
+    "id": "PUB-009",
+    "channel": "tiendanube",
+    "title": "Zapatilla Urbana Clásica",
+    "external_id": "TN-ZAP-URB",
+    "status": "active",
+    "variants": [
+      { "id": "PUB-009-V1", "sku": "SKU-015", "title": "Blanca / Talle 40", "stock": 6, "price": 38000, "last_synced_at": null },
+      { "id": "PUB-009-V2", "sku": "SKU-016", "title": "Blanca / Talle 42", "stock": 4, "price": 38000, "last_synced_at": null },
+      { "id": "PUB-009-V3", "sku": "SKU-017", "title": "Negra / Talle 40", "stock": 5, "price": 38000, "last_synced_at": null },
+      { "id": "PUB-009-V4", "sku": "SKU-018", "title": "Negra / Talle 42", "stock": 3, "price": 38000, "last_synced_at": null }
+    ]
+  },
+  {
+    "id": "PUB-010",
+    "channel": "mercadolibre",
+    "title": "Hoodie Canguro",
+    "external_id": "ML-HOOD-CANG",
+    "status": "active",
+    "variants": [
+      { "id": "PUB-010-V1", "sku": "SKU-019", "title": "Negro / Talle M", "stock": 20, "price": 18500, "last_synced_at": null },
+      { "id": "PUB-010-V2", "sku": "SKU-020", "title": "Negro / Talle L", "stock": 15, "price": 18500, "last_synced_at": null },
+      { "id": "PUB-010-V3", "sku": "SKU-021", "title": "Gris / Talle L", "stock": 0, "price": 18500, "last_synced_at": null }
+    ]
+  },
+  {
+    "id": "PUB-011",
+    "channel": "mercadolibre",
+    "title": "Campera Puffer Liviana Negra",
+    "external_id": "ML-CAMP-PUFF-NEG",
+    "status": "active",
+    "variants": [
+      { "id": "PUB-011-V1", "sku": "SKU-022", "title": "Negra / Talle M", "stock": 7, "price": 32000, "last_synced_at": null },
+      { "id": "PUB-011-V2", "sku": "SKU-023", "title": "Negra / Talle L", "stock": 5, "price": 32000, "last_synced_at": null }
+    ]
+  },
+  {
+    "id": "PUB-012",
+    "channel": "tiendanube",
+    "title": "Campera Puffer Liviana",
+    "external_id": "TN-CAMP-PUFF",
+    "status": "active",
+    "variants": [
+      { "id": "PUB-012-V1", "sku": "SKU-022", "title": "Negra / Talle M", "stock": 7, "price": 32000, "last_synced_at": null },
+      { "id": "PUB-012-V2", "sku": "SKU-024", "title": "Azul / Talle M", "stock": 4, "price": 32000, "last_synced_at": null }
+    ]
+  },
+  {
+    "id": "PUB-013",
+    "channel": "mercadolibre",
+    "title": "Mochila Urban 25L",
+    "external_id": "ML-MOCHI-URBAN",
+    "status": "active",
+    "variants": [
+      { "id": "PUB-013-V1", "sku": "SKU-028", "title": "Negro", "stock": 11, "price": 14500, "last_synced_at": null },
+      { "id": "PUB-013-V2", "sku": "SKU-029", "title": "Gris", "stock": 9, "price": 14500, "last_synced_at": null }
+    ]
+  },
+  {
+    "id": "PUB-014",
+    "channel": "tiendanube",
+    "title": "Mochila Urban 25L y Gorra Trucker",
+    "external_id": "TN-MOCHI-GORRA",
+    "status": "active",
+    "variants": [
+      { "id": "PUB-014-V1", "sku": "SKU-028", "title": "Mochila Negro", "stock": 11, "price": 14500, "last_synced_at": null },
+      { "id": "PUB-014-V2", "sku": "SKU-029", "title": "Mochila Gris", "stock": 9, "price": 14500, "last_synced_at": null },
+      { "id": "PUB-014-V3", "sku": "SKU-030", "title": "Gorra Negro", "stock": 25, "price": 5500, "last_synced_at": null },
+      { "id": "PUB-014-V4", "sku": "SKU-031", "title": "Gorra Beige", "stock": 18, "price": 5500, "last_synced_at": null }
+    ]
+  }
+]
