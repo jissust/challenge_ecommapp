@@ -1,15 +1,15 @@
 
 import { pool } from "../../database/config/db.js";
 
-export const createProductService = async ({ name, description, variants }) => {
+export const createProductService = async ({ name, description, base_sku, variants }) => {
   const conn = await pool.getConnection();
 
   try {
     await conn.beginTransaction();
 
     const [productResult] = await conn.query(
-      "INSERT INTO products (name, description) VALUES (?, ?)",
-      [name, description]
+      "INSERT INTO products (name, description, base_sku) VALUES (?, ?, ?)",
+      [name, description, base_sku]
     );
 
     const productId = productResult.insertId;
