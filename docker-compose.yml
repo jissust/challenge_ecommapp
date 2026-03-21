@@ -9,10 +9,27 @@ services:
     depends_on:
       - mysql
       - redis
+      - mock-channel-api
     env_file:
       - .env
     volumes:
       - .:/app
+    networks:
+      - challenge-network
+
+  worker:
+    build: .
+    container_name: challenge_worker
+    command: node src/workers/stock.worker.js
+    depends_on:
+      - redis
+      - mysql
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+    networks:
+      - challenge-network
 
   mysql:
     image: mysql:8
@@ -24,16 +41,34 @@ services:
       MYSQL_USER: challenge_user
       MYSQL_PASSWORD: challenge_pass
     ports:
-      - "3306:3306"
+      - "3307:3306"
     volumes:
       - mysql_data:/var/lib/mysql
       - ./src/database/init:/docker-entrypoint-initdb.d
+    networks:
+      - challenge-network
 
   redis:
     image: redis:7
     container_name: challenge_redis
     ports:
-      - "6379:6379"
+      - "6378:6379"
+    networks:
+      - challenge-network
+
+  mock-channel-api:
+    build:
+      context: ./mock-channel-api
+      dockerfile: Dockerfile
+    container_name: challenge_mock_channel
+    ports:
+      - "8080:8080"
+    networks:
+      - challenge-network
+
+networks:
+  challenge-network:
+    driver: bridge
 
 volumes:
   mysql_data:
