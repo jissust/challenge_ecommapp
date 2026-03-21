@@ -96,9 +96,10 @@ CREATE TABLE publications (
 CREATE TABLE publication_variants (
   id INT AUTO_INCREMENT PRIMARY KEY,
   publication_id INT NOT NULL,
-  variant_id INT NOT NULL,
+
+  sku VARCHAR(100) NOT NULL,
+
   external_variant_id VARCHAR(255) NOT NULL,
 
-  FOREIGN KEY (publication_id) REFERENCES publications(id),
-  FOREIGN KEY (variant_id) REFERENCES variants(id)
+  FOREIGN KEY (publication_id) REFERENCES publications(id)
 );
