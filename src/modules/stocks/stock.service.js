@@ -11,7 +11,7 @@ export const assignStockService = async ({
     VALUES (?, ?, ?)
     ON DUPLICATE KEY UPDATE quantity = ?
     `,
-    [variant_id, warehouse_id, quantity, quantity]
+    [variant_id, warehouse_id, quantity, quantity],
   );
 
   return { ok: true };

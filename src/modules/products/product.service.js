@@ -1,7 +1,11 @@
-
 import { pool } from "../../database/config/db.js";
 
-export const createProductService = async ({ name, description, base_sku, variants }) => {
+export const createProductService = async ({
+  name,
+  description,
+  base_sku,
+  variants,
+}) => {
   const conn = await pool.getConnection();
 
   try {
@@ -9,7 +13,7 @@ export const createProductService = async ({ name, description, base_sku, varian
 
     const [productResult] = await conn.query(
       "INSERT INTO products (name, description, base_sku) VALUES (?, ?, ?)",
-      [name, description, base_sku]
+      [name, description, base_sku],
     );
 
     const productId = productResult.insertId;
@@ -19,7 +23,7 @@ export const createProductService = async ({ name, description, base_sku, varian
         `INSERT INTO variants 
         (product_id, sku, title, color, size, price)
         VALUES (?, ?, ?, ?, ?, ?)`,
-        [productId, v.sku, v.title, v.color, v.size, v.price]
+        [productId, v.sku, v.title, v.color, v.size, v.price],
       );
     }
 

@@ -1,4 +1,3 @@
-
 import { createProductService } from "./product.service.js";
 
 export const createProduct = async (req, res) => {

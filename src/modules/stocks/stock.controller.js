@@ -1,4 +1,3 @@
-
 import { assignStockService } from "./stock.service.js";
 
 export const assignStock = async (req, res) => {

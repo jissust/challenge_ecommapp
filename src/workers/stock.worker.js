@@ -15,7 +15,8 @@ const worker = new Worker(
 
       const sku = variant[0].sku;
 
-      const [rows] = await pool.query(`
+      const [rows] = await pool.query(
+        `
         SELECT 
             p.id, 
             p.external_id,
@@ -26,24 +27,25 @@ const worker = new Worker(
             p.id = pv.publication_id
         WHERE
             pv.sku = ?
-        `, [sku]); 
+        `,
+        [sku],
+      );
 
       console.log("Procesando sync:", job.data);
 
-      for(const row of rows ){
+      for (const row of rows) {
         try {
-            await axios.put(
+          await axios.put(
             `http://mock-channel-api:8080/channel/publications/${row.external_id}/variants/${row.external_variant_id}/stock`,
             {
-                stock: Number(totalStock),
+              stock: Number(totalStock),
             },
-            );
+          );
 
-            console.log("Stock sincronizado");
-            
+          console.log("Stock sincronizado");
         } catch (error) {
-            console.error("Error sync:", error.message);
-            throw error;
+          console.error("Error sync:", error.message);
+          throw error;
         }
       }
     }

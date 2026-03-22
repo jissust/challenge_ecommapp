@@ -3,7 +3,7 @@ import { pool } from "../../database/config/db.js";
 
 export const syncPublicationsService = async () => {
   const data = JSON.parse(
-    fs.readFileSync("mock-channel-api/data/publications.json", "utf-8")
+    fs.readFileSync("mock-channel-api/data/publications.json", "utf-8"),
   );
 
   const conn = await pool.getConnection();
@@ -14,7 +14,7 @@ export const syncPublicationsService = async () => {
     for (const pub of data) {
       const [result] = await conn.query(
         "INSERT INTO publications (external_id, channel) VALUES (?, ?)",
-        [pub.id, pub.channel]
+        [pub.id, pub.channel],
       );
 
       const publicationId = result.insertId;
@@ -25,7 +25,7 @@ export const syncPublicationsService = async () => {
           INSERT INTO publication_variants (publication_id, sku, external_variant_id)
           VALUES (?, ?, ?)
         `,
-          [publicationId, variant.sku, variant.id]
+          [publicationId, variant.sku, variant.id],
         );
       }
     }
