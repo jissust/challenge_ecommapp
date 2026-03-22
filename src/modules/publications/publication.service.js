@@ -1,5 +1,4 @@
 import fs from "fs";
-import path from "path";
 import { pool } from "../../database/config/db.js";
 
 export const syncPublicationsService = async () => {

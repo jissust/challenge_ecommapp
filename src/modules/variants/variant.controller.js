@@ -10,8 +10,8 @@ export const updateStockWarehouse = async (req, res) => {
             warehouse_id,
             quantity
         });
-        res.json(result)
+        res.json(result);
     } catch (error){
-        res.status(500).json({error: error.message})
+        res.status(500).json({error: error.message});
     }
-}
+};
