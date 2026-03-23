@@ -89,6 +89,6 @@ CREATE TABLE publication_variants (
     id INT AUTO_INCREMENT PRIMARY KEY,
     publication_id INT NOT NULL,
     sku VARCHAR(100) NOT NULL,
-    external_variant_id VARCHAR(255) NOT NULL,
+    external_variant_id VARCHAR(255) UNIQUE NOT NULL,
     FOREIGN KEY (publication_id) REFERENCES publications (id)
 );
