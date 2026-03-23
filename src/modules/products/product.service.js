@@ -1,4 +1,5 @@
 import { pool } from "../../database/config/db.js";
+import { auditLog } from "../../utils/auditLog.js";
 
 export const createProductService = async ({
   name,
@@ -34,6 +35,13 @@ export const createProductService = async ({
         [productId, v.sku, v.title, v.color, v.size, v.price],
       );
     }
+
+    await auditLog(conn, {
+      event: "PRODUCT_CREATED",
+      entity: "product",
+      entityId: productId,
+      message: `Product created with ${variants.length} variants`,
+    });
 
     await conn.commit();
 

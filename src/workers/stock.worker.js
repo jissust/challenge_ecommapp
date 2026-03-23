@@ -1,6 +1,7 @@
 import { Worker } from "bullmq";
 import axios from "axios";
 import { pool } from "../../src/database/config/db.js";
+import { auditLog } from "../utils/auditLog.js";
 
 const worker = new Worker(
   "stock",
@@ -43,11 +44,32 @@ const worker = new Worker(
           );
 
           console.log("Stock sincronizado");
+
+          await auditLog(pool, {
+            event: "SYNC_SUCCESS",
+            entity: "publication",
+            entityId: row.id,
+            message: `Stock synchronized for variant ${row.external_variant_id} of publication ${row.external_id}`,
+          });
         } catch (error) {
           console.error("Error sync:", error.message);
+          await auditLog(pool, {
+            event: "SYNC_ERROR",
+            entity: "publication",
+            entityId: row.id,
+            message: `${error.message}: publication ${row.external_id} - variant: ${row.external_variant_id}`,
+          });
           throw error;
         }
       }
+
+      await auditLog(pool, {
+        event: "JOB_COMPLETED",
+        entity: "variant",
+        entityId: variant_id,
+        message: `Publications related to variant ${variant_id} sku ${sku} were synchronized`,
+      });
+
     }
   },
   {

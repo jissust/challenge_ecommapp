@@ -1,4 +1,5 @@
 import { pool } from "../../database/config/db.js";
+import { auditLog } from "../../utils/auditLog.js";
 
 export const assignStockService = async ({
   variant_id,
@@ -30,7 +31,7 @@ export const assignStockService = async ({
     throw new Error("Warehouse not found");
   }
 
-  await pool.query(
+  const [result] = await pool.query(
     `
     INSERT INTO stocks (variant_id, warehouse_id, quantity)
     VALUES (?, ?, ?)
@@ -38,6 +39,14 @@ export const assignStockService = async ({
     `,
     [variant_id, warehouse_id, quantity, quantity],
   );
+  
+  const stockId = result.insertId;
+  await auditLog(pool, {
+    event: "STOCK_CREATED",
+    entity: "stock",
+    entityId: stockId,
+    message: `Stock created for variant ${variant_id} in depot ${warehouse_id}.`,
+  });
 
   return { ok: true, variant_id, warehouse_id, quantity };
 };
