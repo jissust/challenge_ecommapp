@@ -92,3 +92,15 @@ CREATE TABLE publication_variants (
     external_variant_id VARCHAR(255) UNIQUE NOT NULL,
     FOREIGN KEY (publication_id) REFERENCES publications (id)
 );
+
+-- =========================================
+-- TABLE: audit_logs
+-- =========================================
+CREATE TABLE audit_logs (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    event_type VARCHAR(100) NOT NULL,
+    entity_type VARCHAR(100) NOT NULL,
+    entity_id INT NOT NULL,
+    message VARCHAR(100) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP 
+)
