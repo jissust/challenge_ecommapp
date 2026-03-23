@@ -11,10 +11,22 @@ export const updateStockVariantWarehouseService = async ({
   try {
     await conn.beginTransaction();
 
-    await conn.query(
+    if (!variant_id || !warehouse_id) {
+      throw new Error("variant_id and warehouse_id are required");
+    }
+
+    if (typeof quantity !== "number" || quantity < 0) {
+      throw new Error("quantity must be a positive number");
+    }
+
+    const [result] = await conn.query(
       "UPDATE stocks SET quantity = ?, updated_at = CURRENT_TIMESTAMP WHERE variant_id = ? AND warehouse_id = ?",
       [quantity, variant_id, warehouse_id],
     );
+
+    if (result.affectedRows === 0) {
+      throw new Error("Stock record not found");
+    }
 
     const [rows] = await conn.query(
       "SELECT SUM(quantity) AS total FROM stocks WHERE variant_id = ?",
@@ -22,7 +34,10 @@ export const updateStockVariantWarehouseService = async ({
     );
 
     const totalStock = rows[0].total || 0;
-
+    if (totalStock < 0) {
+      throw new Error("Total stock cannot be negative");
+    }
+    
     await conn.query("UPDATE variants SET stock_quantity = ? WHERE id = ?", [
       totalStock,
       variant_id,
