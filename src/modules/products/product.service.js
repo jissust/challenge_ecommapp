@@ -11,6 +11,14 @@ export const createProductService = async ({
   try {
     await conn.beginTransaction();
 
+    if (!name) {
+      throw new Error("Name is required");
+    }
+
+    if (!Array.isArray(variants) || variants.length === 0) {
+      throw new Error("Variants are required");
+    }
+
     const [result] = await conn.query(
       "INSERT INTO products (name, description, base_sku) VALUES (?, ?, ?)",
       [name, description, base_sku],
