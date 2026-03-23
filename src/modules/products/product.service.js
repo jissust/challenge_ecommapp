@@ -11,12 +11,12 @@ export const createProductService = async ({
   try {
     await conn.beginTransaction();
 
-    const [productResult] = await conn.query(
+    const [result] = await conn.query(
       "INSERT INTO products (name, description, base_sku) VALUES (?, ?, ?)",
       [name, description, base_sku],
     );
 
-    const productId = productResult.insertId;
+    const productId = result.insertId;
 
     for (const v of variants) {
       await conn.query(
